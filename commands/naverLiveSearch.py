@@ -1,27 +1,10 @@
-from flask import Flask
-from flask_cors import CORS
-from commands.naverLiveSearch import naverLiveSearch, ffff
+import urllib
+from urllib.request import Request
+import bs4
+import datetime
+from selenium import webdriver
 
-app = Flask(__name__)
-CORS(app)
-
-@app.route('/')
-def index():
-  return '<h1>안녕</h1>'
-
-@app.route('/tt')
-def test2():
-  return jsonify(
-    text='Hello, world'
-  )
-
-@app.route('/t')
-def test():
-  return ffff(environ, start_response)
-
-@app.route('/n')
-def naver():
-  # return naverLiveSearch
+def naverLiveSearch():
   url = "https://www.naver.com/"
   html = urllib.request.urlopen(url)
 
@@ -43,8 +26,9 @@ def naver():
       'link': realURL,
     })
 
+  # return ret
   return json.dumps(ret)
 
-# @app.route('/<name>')
-# def index2(name):
-#     return '<h1>{} 안녕</h1>'.format(name)
+
+def ffff():
+  return '<h1>아..?</h1>'

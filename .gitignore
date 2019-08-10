@@ -2,3 +2,4 @@
 .vscode
 /env
 asf.txt
+/commands/__pycache__
